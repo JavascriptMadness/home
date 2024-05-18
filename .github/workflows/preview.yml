@@ -1,15 +1,12 @@
 name: Deploy PR previews to GitHub Pages
 concurrency: preview-${{ github.ref }}
 on:
-    pull_request:
-        types:
-            - opened
-            - reopened
-            - synchronize
-            - closed
+    workflow_call:
+    
 permissions:
     contents: write
-    pull-requests: write 
+    pull-requests: write
+    issues: write
 jobs:
     deploy-preview:
         runs-on: ubuntu-latest
